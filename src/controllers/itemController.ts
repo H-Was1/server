@@ -39,7 +39,7 @@ export const deleteItem = async (
   const { id } = req.params;
   try {
     await ItemModel.findByIdAndDelete(id);
-    res.json({ message: "Item deleted successfully" });
+    res.status(204).json({ message: "Item deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: "Error deleting item", error });
   }
